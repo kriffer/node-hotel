@@ -1,1 +1,1 @@
-# node-hotel
+# Node Hotel

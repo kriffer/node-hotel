@@ -8,6 +8,18 @@
   "rules": {
     "no-console": "off",
     "comma-dangle": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "react/no-multi-comp": [
+      "off",
+      {
+        "ignoreStateless": true
+      }
+    ],
+    "react/prefer-stateless-function": [
+      "off",
+      {
+        "ignorePureComponents": true
+      }
+    ]
   }
 }

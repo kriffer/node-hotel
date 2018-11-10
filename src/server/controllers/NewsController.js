@@ -1,8 +1,8 @@
-const News = require('News');
+const News = require('src/server/models/News');
 
 module.exports = {
   find(params, callback) {
-    News.find(params, '_id title teaser', (err, results) => {
+    News.find(params, '_id title author', (err, results) => {
       if (err) {
         callback(err, null);
         return;

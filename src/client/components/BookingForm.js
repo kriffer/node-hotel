@@ -14,9 +14,6 @@ import { DateInput } from 'semantic-ui-calendar-react';
 
 
 
-const room_types = [{ text: 'Room1', value: 'room1' }, { text: 'Room2', value: 'room2' }];
-const guest_amount = [{ text: '1', value: '1' }, { text: '2', value: '2' },{ text: '3', value: '3' }];
-
 export class BookingForm extends React.Component {
 
   constructor(props) {
@@ -36,7 +33,20 @@ export class BookingForm extends React.Component {
   handleSubmit(event) {
   }
 
+
+
+
   render() {
+
+    const { rooms } = this.props
+    var roomNames = []
+    var i = 0
+    rooms.map(room => room.name).forEach(element => {
+      var rn = {}
+      rn["key"] = i++; rn["text"] = element; rn["value"] = element; roomNames.push(rn);
+
+    });
+
     return (
       <Segment padded>
         <Form onSubmit={this.handleSubmit} size="small">
@@ -61,12 +71,15 @@ export class BookingForm extends React.Component {
             />
           </Form.Group>
           <Form.Group widths='equal'>
+
             <Form.Field
-              control={Select} label='Room type' options={room_types} placeholder='Room Type'
+              control={Select} label='Guests amount' options={roomNames} placeholder='Guests amount'
             />
             <Form.Field
-              control={Select} label='Guests amount' options={guest_amount} placeholder='Guests amount'
+
+              control={Select} label='Room type' options={roomNames} placeholder='Room Type'
             />
+
 
           </Form.Group>
           <Form.Group grouped >

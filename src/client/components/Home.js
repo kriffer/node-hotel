@@ -4,10 +4,11 @@ import { BookingForm } from './BookingForm';
 import NewsWidget from './NewsWidget';
 import { Activities } from './Activities';
 import { RoomList } from './RoomList';
-
+import { rooms } from '../store/models'
 import {
   Container, Grid, Divider, Image
 } from 'semantic-ui-react';
+import { PropTypes } from 'prop-types'
 import { Facilities } from './Facilities';
 import { Contacts } from './Contacts';
 
@@ -17,11 +18,16 @@ export class Home extends Component {
     this.state = { news: null };
   }
 
-  componentDidMount() {
-    fetch('/hello')
-      .then(response => console.log('OK'))
-      .then(data => this.setState({ news: 'Hello' }));
+  static propTypes = {
+    rooms: PropTypes.array.isRequired
   }
+
+
+  componentDidMount() {
+
+
+  }
+
 
   render() {
 
@@ -41,7 +47,7 @@ export class Home extends Component {
                 </Grid.Column>
 
                 <Grid.Column width={7} floated='right'>
-                  <BookingForm />
+                  <BookingForm rooms={rooms} />
                 </Grid.Column>
 
               </Grid.Row>
@@ -51,9 +57,10 @@ export class Home extends Component {
 
         <Container>
           <Grid>
-            <Grid.Row columns={2} style={{marginTop:'3em'}}>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
               <Grid.Column width={11}>
-                <RoomList />
+                <RoomList rooms={rooms} />
+
               </Grid.Column>
               <Grid.Column width={5}>
                 <Facilities />
@@ -62,15 +69,15 @@ export class Home extends Component {
           </Grid>
         </Container>
 
-<Container>
-        <Grid>
-          <Grid.Row columns={2} style={{marginTop:'3em'}}>
-            <Grid.Column width={11}> <Activities /></Grid.Column>
-            <Grid.Column width={5}> <Contacts /></Grid.Column>
-          </Grid.Row>
+        <Container>
+          <Grid>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
+              <Grid.Column width={11}> <Activities /></Grid.Column>
+              <Grid.Column width={5}> <Contacts /></Grid.Column>
+            </Grid.Row>
 
-        </Grid>
-</Container>
+          </Grid>
+        </Container>
       </div>
 
 

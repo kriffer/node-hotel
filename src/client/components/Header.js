@@ -9,7 +9,7 @@ import {
   Sticky, Input, Icon, Image, Container
 } from 'semantic-ui-react';
 
-import 'semantic-ui-css/semantic.min.css';
+ 
 
 
 export class Header extends Component {
@@ -47,7 +47,7 @@ export class Header extends Component {
         <Menu.Item name='rooms'
                    active={activeItem === 'rooms'}
                    onClick={this.handleItemClick}>
-          <Link to="rooms">
+          <Link to="/rooms">
             Rooms
           </Link>
 
@@ -62,7 +62,7 @@ export class Header extends Component {
         <Menu.Item name='activities'
                    active={activeItem === 'activities'}
                    onClick={this.handleItemClick}>
-          <Link to="activities">
+          <Link to="/activities">
             Activities
           </Link>
         </Menu.Item>

@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
-
+import { Sticky } from 'semantic-ui-react';
 import { Header } from './Header';
 import { Main } from './Main';
 import { Footer } from './Footer';
 import 'semantic-ui-css/semantic.min.css';
-import {
-  Sticky
-} from "semantic-ui-react";
 
 class App extends Component {
-  state = { context: null }
-  render() {
 
+
+  render() {
     return (
       <div>
-
-        <Sticky context={this.state.context}>
+        <Sticky>
           <Header />
         </Sticky>
         <Main />
         <Footer />
-
-
       </div>
-
     );
   }
 }

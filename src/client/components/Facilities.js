@@ -2,7 +2,7 @@ import { Component } from "react";
 import React from "react";
 import { Segment, List } from "semantic-ui-react";
 
-export class Facilities extends Component {
+class Facilities extends Component {
   render() {
     return (
       <Segment>
@@ -51,3 +51,5 @@ export class Facilities extends Component {
     );
   }
 }
+
+export default Facilities;

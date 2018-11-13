@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Segment, Container, Header, Button, Divider } from "semantic-ui-react";
-import { Article } from "./Article";
+import Article from "./Article";
 
-export class Blog extends Component {
+class Blog extends Component {
   render() {
     return (
       <Segment style={{ padding: "8em 0em" }} vertical>
@@ -25,10 +25,12 @@ export class Blog extends Component {
             horizontal
             style={{ margin: "3em 0em", textTransform: "uppercase" }}
           >
-            {/* <a href="#">Case Studies</a> */}
+            {/* <a href='#'>Case Studies</a> */}
           </Divider>
         </Container>
       </Segment>
     );
   }
 }
+
+export default Blog;

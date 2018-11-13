@@ -1,24 +1,24 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { BookingForm } from "./BookingForm";
-import NewsWidget from "./NewsWidget";
-import { Activities } from "./Activities";
-import { RoomList } from "./RoomList";
-import { rooms } from "../models";
-import { Container, Grid, Divider, Image } from "semantic-ui-react";
-import { PropTypes } from "prop-types";
-import { Facilities } from "./Facilities";
-import { Contacts } from "./Contacts";
+import BookingForm from './BookingForm';
+import NewsWidget from './NewsWidget';
+import Activities from './Activities';
+import RoomList from './RoomList';
+import {rooms}  from '../models';
+import {Container, Grid, Divider, Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import Facilities from './Facilities';
+import Contacts from './Contacts';
 
-export class Home extends Component {
+class Home extends Component {
+  static propTypes = {
+    rooms: PropTypes.array.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = { news: null };
   }
-
-  static propTypes = {
-    rooms: PropTypes.array.isRequired
-  };
 
   componentDidMount() {}
 
@@ -27,19 +27,19 @@ export class Home extends Component {
       <div>
         <Container
           style={{
-            height: "650px",
-            width: "100%",
-            background: "url(../src/client/img/bg.jpg)"
+            height: '650px',
+            width: '100%',
+            background: 'url(../src/client/img/bg.jpg)'
           }}
         >
           <Container>
             <Grid>
-              <Grid.Row columns={2} style={{ marginTop: "10em" }}>
+              <Grid.Row columns={2} style={{ marginTop: '10em' }}>
                 <Grid.Column>
                   <NewsWidget news={this.state.news} />
                 </Grid.Column>
 
-                <Grid.Column width={7} floated="right">
+                <Grid.Column width={7} floated='right'>
                   <BookingForm rooms={rooms} />
                 </Grid.Column>
               </Grid.Row>
@@ -49,7 +49,7 @@ export class Home extends Component {
 
         <Container>
           <Grid>
-            <Grid.Row columns={2} style={{ marginTop: "3em" }}>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
               <Grid.Column width={11}>
                 <RoomList rooms={rooms} />
               </Grid.Column>
@@ -62,13 +62,13 @@ export class Home extends Component {
 
         <Container>
           <Grid>
-            <Grid.Row columns={2} style={{ marginTop: "3em" }}>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
               <Grid.Column width={11}>
-                {" "}
+                {' '}
                 <Activities />
               </Grid.Column>
               <Grid.Column width={5}>
-                {" "}
+                {' '}
                 <Contacts />
               </Grid.Column>
             </Grid.Row>
@@ -78,3 +78,5 @@ export class Home extends Component {
     );
   }
 }
+
+export default Home;

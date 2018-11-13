@@ -1,13 +1,12 @@
-import { Component } from "react";
-import React from "react";
-import { Container, Segment, Item, Button } from "semantic-ui-react";
+import { Component } from 'react';
+import React from 'react';
+import { PropTypes } from 'prop-types';
+import { Container, Segment, Item, Button } from 'semantic-ui-react';
+import Room from './Room';
 
-import { Room } from "./Room";
+class RoomList extends Component {
 
-export class RoomList extends Component {
-  constructor(props) {
-    super(props);
-  }
+  static PropTypes = { rooms: PropTypes.array };
 
   render() {
     const { rooms } = this.props;
@@ -16,3 +15,5 @@ export class RoomList extends Component {
     return <Container>{roomsList}</Container>;
   }
 }
+
+export default RoomList;

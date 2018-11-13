@@ -6,7 +6,7 @@ import { Segment, Select, Button, Form } from 'semantic-ui-react';
 
 import { DateInput } from 'semantic-ui-calendar-react';
 
-class BookingForm extends Component {
+class  BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = { date: '' };

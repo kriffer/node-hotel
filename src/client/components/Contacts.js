@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Segment } from 'semantic-ui-react';
 
-export const Contacts = () => (
+const Contacts = () => (
   <Segment>
     <List>
       <List.Header floated="center">Contact us</List.Header>
@@ -29,4 +29,5 @@ export const Contacts = () => (
   </Segment>
 );
 
- 
+export default Contacts;
+

@@ -2,6 +2,9 @@
   "name": "node-hotel",
   "version": "1.0.0",
   "description": "hotel template website",
+  "engines": {
+    "node": "8.12.0"
+  },
   "main": "src/server/index.js",
   "scripts": {
     "build": "webpack --mode production",

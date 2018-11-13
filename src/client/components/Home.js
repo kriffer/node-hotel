@@ -4,7 +4,7 @@ import BookingForm from './BookingForm';
 import NewsWidget from './NewsWidget';
 import Activities from './Activities';
 import RoomList from './RoomList';
-import {rooms}  from '../models';
+import { rooms } from './models';
 import {Container, Grid, Divider, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Facilities from './Facilities';

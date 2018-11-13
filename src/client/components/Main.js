@@ -10,7 +10,7 @@ import  RoomList   from './RoomList';
 import  Activities   from './Activities';
 import  Container   from 'semantic-ui-react';
 import LoginForm from './LoginForm';
-import  {rooms}   from '../models';
+import  {rooms}   from './models';
 
 class Main extends Component {
   render() {

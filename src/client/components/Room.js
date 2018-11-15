@@ -9,6 +9,7 @@ import {
   Modal
 } from "semantic-ui-react";
 import BookingForm from "./BookingForm";
+import room_1 from '../img/room_1.png';
 
 class Room extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Room extends Component {
             </Item.Content>
           </Item>
           <Item>
-            <Item.Image size="small" src="../src/client/img/room_1.png" />
+            <Item.Image size="small" src={room_1} />
 
             <Item.Content verticalAlign="middle">
               <Item.Header>{room.name}</Item.Header>

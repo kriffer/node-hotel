@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
-
+import logo from '../img/logo.png';
 import { News } from "./News";
 import "semantic-ui-css/semantic.min.css";
 import { Menu, Sticky, Input, Icon, Image, Container } from "semantic-ui-react";
@@ -20,7 +20,7 @@ class Header extends Component {
           <Menu.Item>
             <Image
               className="logo"
-              src="../src/client/img/logo.png"
+              src={logo}
               width="240"
               height="40"
               alt="NodeHotel"

@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js$/,  
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -23,17 +23,14 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
+      // {
+      //   test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
+      //   loader: 'url-loader?limit=100000'
+      // },
       {
         test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000'
-      },
-      {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name]-[hash:8].[ext]',
-        },
-      },
+        loaders: ['url-loader?limit=100000&name=[name].[ext]']
+      }
     ]
   },
   devServer: {
@@ -41,7 +38,9 @@ module.exports = {
     open: true,
     proxy: {
       '/api': 'http://localhost:8080'
-    }
+    },
+    historyApiFallback: true    // rerouting to index.html while refreshing page in client routing  
+
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),

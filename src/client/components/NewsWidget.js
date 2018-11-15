@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import React from 'react';
 import { Segment, Feed } from 'semantic-ui-react';
+import feed_icon from '../img/feed_icon.jpg';
 
-const image = '../src/client/img/feed_icon.jpg';
+
+const image = feed_icon;
 const date = '3 days ago';
 const summary = 'We created a post';
 const extraText = 'Have you seen what\'s going on? Can you believe it.';

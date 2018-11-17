@@ -1,41 +1,32 @@
 import { Component } from 'react';
 import React from 'react';
-import { Segment, Container, Header, Button, Divider } from "semantic-ui-react";
+import { Item, Header, Button, Divider } from 'semantic-ui-react';
+import toggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
-    constructor(props) {
-        super(props);
-      }
+  getBody() {
+    const { article, isOpen } = this.props;
+    if (!isOpen) return null;
+    return <p style={{ fontSize: '1.33em' }}>{article.text}</p>;
+  }
 
   render() {
+    const { article, isOpen, toggleOpen } = this.props;
+    const text = isOpen ? 'Read Less' : 'Read More';
     return (
-      <Segment style={{ padding: "8em 0em" }} vertical>
-        <Container text>
-          <Header as="h3" style={{ fontSize: "2em" }}>
-            Breaking The Grid, Grabs Your Attention
-          </Header>
-          <p style={{ fontSize: "1.33em" }}>
-            Instead of focusing on content creation and hard work, we have
-            learned how to master the art of doing nothing by providing massive
-            amounts of whitespace and generic content that can seem massive,
-            monolithic and worth your attention.
-          </p>
-          <Button as="a" size="large">
-            Read More
-          </Button>
-          <Divider
-            as="h4"
-            className="header"
-            horizontal
-            style={{ margin: "3em 0em", textTransform: "uppercase" }}
-          >
-            {/* <a href="#">Case Studies</a> */}
-          </Divider>
-        </Container>
-      </Segment>
+      <Item>
+        <Header as="h3" style={{ fontSize: '2em' }}>
+          {article.title}
+        </Header>
+
+        <Button as="a" size="large" onClick={toggleOpen}>
+          {text}
+        </Button>
+        {this.getBody()}
+        <Divider style={{ margin: '3em 0em' }} />
+      </Item>
     );
   }
 }
 
-export default Article;
-
+export default toggleOpen(Article);

@@ -7,7 +7,7 @@ import  Blog   from './Blog';
 import  Room   from './Room';
 import  Admin   from './Admin';
 import  RoomList   from './RoomList';
-import  Activities   from './Activities';
+import  ActivityList   from './ActivityList';
 import  Container   from 'semantic-ui-react';
 import LoginForm from './LoginForm';
 import  {rooms}   from './models';
@@ -20,7 +20,7 @@ class Main extends Component {
         <Route path='/news' component={News} />
         <Route path='/blog' component={Blog} />
         <Route path='/rooms' render={() => <RoomList rooms={rooms} />} />
-        <Route path='/activities' component={Activities} />
+        <Route path='/activities' component={ActivityList} />
         <Route path='/room' component={Room} />
         <Route path='/admin' component={LoginForm} />
       </Switch>

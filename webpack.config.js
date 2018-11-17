@@ -23,10 +23,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
-      // {
-      //   test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
-      //   loader: 'url-loader?limit=100000'
-      // },
       {
         test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
         loaders: ['url-loader?limit=100000&name=[name].[ext]']

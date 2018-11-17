@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import BookingForm from "./BookingForm";
 import NewsWidget from "./NewsWidget";
-import Activities from "./Activities";
+import ActivityList from "./ActivityList";
 import RoomList from "./RoomList";
 import { rooms } from "./models";
 import { Container, Grid, Divider, Image } from "semantic-ui-react";
@@ -65,7 +65,7 @@ class Home extends Component {
             <Grid.Row columns={2} style={{ marginTop: "3em" }}>
               <Grid.Column width={11}>
                 {" "}
-                <Activities />
+                <ActivityList />
               </Grid.Column>
               <Grid.Column width={5}>
                 {" "}

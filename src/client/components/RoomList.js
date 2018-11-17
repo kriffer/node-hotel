@@ -12,7 +12,7 @@ class RoomList extends Component {
     const { rooms } = this.props;
     const roomsList = rooms.map(room => <Room key={room.id} room={room} rooms={rooms} />);
 
-    return <Container>{roomsList}</Container>;
+    return <Container><Segment><h1>Rooms</h1>{roomsList}</Segment></Container>;
   }
 }
 

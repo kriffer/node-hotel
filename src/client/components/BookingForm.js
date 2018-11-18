@@ -1,31 +1,38 @@
 import React from 'react';
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from 'prop-types';
 
-import { Segment, Select, Button, Form } from 'semantic-ui-react';
+import { Segment, Select, Button, Form, Message } from 'semantic-ui-react';
 
 import { DateInput } from 'semantic-ui-calendar-react';
 
-class  BookingForm extends Component {
+class BookingForm extends Component {
+  static propTypes = { rooms: PropTypes.array };
+
   constructor(props) {
     super(props);
-    this.state = { date: '' };
-
+    this.roomNames = [];
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (event, { name, value }) => {
-    if (this.state.hasOwnProperty(name)) {
-      this.setState({ [name]: value });
-    }
+  state = {
+    checkinDate: '',
+    checkoutDate: '',
+    firstName: '',
+    lastName: '',
+    guestNum: '',
+    roomType: '',
+    email: '',
+    roomNames: '',
   };
 
-  handleSubmit(event) {}
+  componentDidMount() {
+    return this.getRoomNames();
+  }
 
-  render() {
+  getRoomNames() {
     const { rooms } = this.props;
-    let roomNames = [];
     let i = 0;
     rooms
       .map(room => room.name)
@@ -34,64 +41,98 @@ class  BookingForm extends Component {
         rn.key = i++;
         rn.text = element;
         rn.value = element;
-        roomNames.push(rn);
+        this.roomNames.push(rn);
       });
+  }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    const { value } = event.target;
+    this.setState = {
+      checkinDate: value,
+      checkoutDate: value,
+      roomType: value,
+      guestNum:value,
+      firstName: value,
+      lastName: value,
+      email: value,
+    };
+    console.log(this.state);
+  };
+
+  handleChange = type => event => {
+    const { value } = event.target;
+    this.setState({ [type]: value });
+  };
+
+  render() {
     return (
       <Segment padded>
-        <Form onSubmit={this.handleSubmit} size='small'>
-          <Form.Group widths='equal'>
+        <Form onSubmit={this.handleSubmit} size="small">
+          <Form.Group widths="equal">
             <DateInput
-              name='date'
-              value={this.state.date}
-              label='Check in'
-              control='input'
-              iconPosition='left'
-              placeholder='Check in'
-              onChange={this.handleChange}
+              name="datein"
+              value={this.state.checkinDate}
+              label="Check in"
+              control="input"
+              iconPosition="left"
+              placeholder="Check in"
+              onChange={this.handleChange('checkinDate')}
             />
             <DateInput
-              name='date'
-              value={this.state.date}
-              label='Check out'
-              control='input'
-              iconPosition='left'
-              placeholder='Check out'
-              onChange={this.handleChange}
+              name="dateout"
+              value={this.state.checkoutDate}
+              label="Check out"
+              control="input"
+              iconPosition="left"
+              placeholder="Check out"
+              onChange={this.handleChange('checkoutDate')}
             />
           </Form.Group>
-          <Form.Group widths='equal'>
+          <Form.Group widths="equal">
             <Form.Field
               control={Select}
-              label='Guests amount'
-              options={roomNames}
-              placeholder='Guests amount'
+              label="Guests amount"
+              options={this.roomNames}
+              placeholder="Guests amount"
+              onChange={this.handleChange}
             />
             <Form.Field
               control={Select}
-              label='Room type'
-              options={roomNames}
-              placeholder='Room Type'
+              label="Room type"
+              options={this.roomNames}
+              placeholder="Room Type"
             />
           </Form.Group>
           <Form.Group grouped>
             <Form.Field
-              label='First Name'
-              control='input'
-              placeholder='first name'
+              label="First Name"
+              control="input"
+              placeholder="first name"
+              value={this.state.firstName}
+              onChange={this.handleChange('firstName')}
             />
             <Form.Field
-              label='Last Name'
-              control='input'
-              placeholder='last name'
+              label="Last Name"
+              control="input"
+              placeholder="last name"
+              value={this.state.lastName}
+              onChange={this.handleChange('lastName')}
             />
-            <Form.Input required label='Email' placeholder='Email' />
+            <Form.Input
+              required
+              label="Email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.handleChange('email')}
+            />
           </Form.Group>
 
           <Form.Group>
-            <Button primary floated='right'>
+            <Button primary floated="right">
               BOOK NOW
             </Button>
+            <Message success header='Form Completed' content={this.state} />
           </Form.Group>
         </Form>
       </Segment>

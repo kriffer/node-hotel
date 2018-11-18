@@ -4,6 +4,25 @@ import { Item, Header, Button, Divider } from 'semantic-ui-react';
 import toggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
+  componentWillMount() {
+    console.log('---', 'mount');
+  }
+
+  componentDidMount() {
+    console.log('---', 'mounted');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('---', 'updating', this.props.isOpen, nextProps.isOpen);
+  }
+
+  // For separate updating of component, but this is useless 
+  // when you exactly know this component is immutable.
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.isOpen !== this.props.isOpen;
+  }
+
   getBody() {
     const { article, isOpen } = this.props;
     if (!isOpen) return null;
@@ -29,4 +48,4 @@ class Article extends Component {
   }
 }
 
-export default toggleOpen(Article);
+export default Article;

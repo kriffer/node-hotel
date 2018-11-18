@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import BookingForm from "./BookingForm";
-import NewsWidget from "./NewsWidget";
-import ActivityList from "./ActivityList";
-import RoomList from "./RoomList";
-import { rooms } from "./models";
-import { Container, Grid, Divider, Image } from "semantic-ui-react";
-import PropTypes from "prop-types";
-import Facilities from "./Facilities";
-import Contacts from "./Contacts";
-import bg from "../img/bg.jpg";
-import "../css/style.css";
+import BookingForm from './BookingForm';
+import NewsWidget from './NewsWidget';
+import ActivityList from './ActivityList';
+import RoomList from './RoomList';
+import { rooms } from './models';
+import { Container, Grid, Divider, Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import Facilities from './Facilities';
+import Contacts from './Contacts';
+import bg from '../img/bg.jpg';
+import '../css/style.css';
 
 class Home extends Component {
   static propTypes = {
-    rooms: PropTypes.array.isRequired
+    rooms: PropTypes.array.isRequired,
   };
 
   constructor(props) {
@@ -26,14 +26,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Container className="HeaderContainer">
-          <Container>
+      <div className="HeaderContainer">
+        <Container >
+          <Container >
             <Grid>
-              <Grid.Row
-                className="GridRow"
+              <Grid.Row              
                 columns={2}
-                style={{ marginTop: "10em" }}
+                style={{ marginTop: '12em' }}
               >
                 <Grid.Column>
                   <NewsWidget news={this.state.news} />
@@ -49,7 +48,7 @@ class Home extends Component {
 
         <Container>
           <Grid>
-            <Grid.Row columns={2} style={{ marginTop: "3em" }}>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
               <Grid.Column width={11}>
                 <RoomList rooms={rooms} />
               </Grid.Column>
@@ -62,13 +61,13 @@ class Home extends Component {
 
         <Container>
           <Grid>
-            <Grid.Row columns={2} style={{ marginTop: "3em" }}>
+            <Grid.Row columns={2} style={{ marginTop: '3em' }}>
               <Grid.Column width={11}>
-                {" "}
+                {' '}
                 <ActivityList />
               </Grid.Column>
               <Grid.Column width={5}>
-                {" "}
+                {' '}
                 <Contacts />
               </Grid.Column>
             </Grid.Row>

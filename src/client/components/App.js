@@ -4,10 +4,13 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import 'semantic-ui-css/semantic.min.css';
+ 
+ 
 
 class App extends Component {
   render() {
     return (
+      
       <div>
         <Sticky>
           <Header />
@@ -15,6 +18,7 @@ class App extends Component {
         <Main />
         <Footer />
       </div>
+ 
     );
   }
 }
